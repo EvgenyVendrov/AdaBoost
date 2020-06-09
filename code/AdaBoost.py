@@ -20,7 +20,7 @@ def AdaBoost_Algo(train_set, how_many_times_to_run, hypo_function):
         H_set_of_hypos.append((lowest_err_hypo, alpha_for_hypo))  # collect all hypos for this round
         if lowest_err_hypo[
             3] >= 0.5:  # if eps (hypos weighted err) is at least half you can "skip" round - as alpha zero
-            continue
+            break
         utils.update_weights(alpha_for_hypo, lowest_err_hypo, train_set, weights, len(train_set),
                              hypo_function)  # update and normalize weights
         utils.normalize_weights(weights, len(weights))
