@@ -27,7 +27,7 @@ def AdaBoost_Algo(train_set, how_many_times_to_run, hypo_function):
     return H_set_of_hypos
 
 
-# external wrapping function to run adaBoost as written in assigment
+# external wrapping function to run adaBoost as written in assignment
 def external_entry_point(hypo_to_use, path_for_data_set=r"dataset\HC_Body_Temperature.txt", num_of_runs=8,
                          length_of_round=100):
     (data_set) = data_prep.get_data_set_from_path(path_for_data_set)  # read data set from path
@@ -47,6 +47,7 @@ def external_entry_point(hypo_to_use, path_for_data_set=r"dataset\HC_Body_Temper
         print("avg TEST acc for round: ", i, " is: ", "%.3f" % utils.calc_avg(list_of_acc_on_test))
 
 
+# main
 print("=" * 20, "RECT", "=" * 20)
 external_entry_point(hypothesis.Rectangle)
 print("=" * 20, "CIRCL", "=" * 20)

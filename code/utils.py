@@ -3,9 +3,9 @@ import os
 import hypothesis
 
 '''
-utilities used for implementing main function
+utilities used for implementing main function, module contains: 
 1. weights updating and normalizing
-2.logging weights
+2. logging weights
 3. labeling a point using whole H
 4. calc the percentage of acc on some H and data set  
 '''
@@ -25,6 +25,7 @@ def normalize_weights(weights, size_of_set):
         weights[i] /= sum_of_weights
 
 
+# done for debug
 def log_weights(runing_string_for_log, path):
     abs_file_path = join_paths(path)
     with open(abs_file_path, 'w') as f:
@@ -37,6 +38,7 @@ def join_paths(path):
     return os.path.join(script_dir, path)
 
 
+# calc accuracy on given data set and hypos
 def calc_accuracy(dataset, list_of_hypos, hypo_type):
     list_of_labels_for_set = []
     for data_point in dataset:
@@ -44,10 +46,12 @@ def calc_accuracy(dataset, list_of_hypos, hypo_type):
     return calc_percentage(dataset, list_of_labels_for_set)
 
 
+# calc average of lists elements
 def calc_avg(list_of_acc):
     return (sum(list_of_acc) / len(list_of_acc))
 
 
+# calc the percentage of right "guesses"
 def calc_percentage(dataset, labels):
     true_labeled = 0
     index_for_label = 0

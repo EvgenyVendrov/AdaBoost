@@ -2,11 +2,12 @@ from random import shuffle
 import utils
 
 '''
-this file conatins all functions used to read data set from file (and handle its structure space-wise)
+this module contains all functions used to read the data set from given file (and handle its structure space-wise)
 '''
 
 
 # helping func for get_text_file_data
+# in the txt data source file there are lines with different number of spaces - thi function handles it
 def handle_any_number_of_spaces(array_of_x_label_y, ):
     num_of_entrys = len(array_of_x_label_y)
     if num_of_entrys == 3:
@@ -39,6 +40,7 @@ def get_data_set_from_path(path):
     return (points_array)
 
 
+# function to shuffle the data set in a way which
 def shuffle_dataset(whole_data):
     size_of_set = int(len(whole_data) / 2)
     shuffle(whole_data)
